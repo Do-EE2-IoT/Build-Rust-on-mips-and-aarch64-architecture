@@ -1,0 +1,16 @@
+[package]
+name = "ToolCheckConfig"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+walkdir = "2.5"
+log = "0.4"
+fern = "0.7.1"
+serde_json = "1.0"
+chrono = "0.4"
+
+[profile.release]
+panic = "abort"
+
