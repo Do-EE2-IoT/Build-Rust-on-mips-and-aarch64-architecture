@@ -1,0 +1,20 @@
+{
+    "name": "service_1",
+    "enabled": true,
+    "port": 8080,
+    "settings": {
+      "timeout": 30,
+      "retries": 3
+    },
+    "endpoints": [
+      
+        "url": "http://localhost:8080",
+        "method": "GET"
+    ]
+      },
+      {
+        "url": "http://localhost:8081",
+        "method": "POST"
+      }
+    ]
+  }

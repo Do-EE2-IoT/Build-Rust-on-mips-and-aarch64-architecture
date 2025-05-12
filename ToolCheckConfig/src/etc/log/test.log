@@ -1,31 +1,66 @@
-2025-04-27 13:44:37 [INFO] File /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/test.json checked successfully
-2025-04-27 13:44:37 [INFO] [SUMMARY] Total files checked: 1
-Errors: 0
-2025-04-27 13:44:46 [INFO] File /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/test.json checked successfully
-2025-04-27 13:44:46 [INFO] [SUMMARY] Total files checked: 1
-Errors: 0
-2025-04-27 13:44:52 [ERROR] Lỗi cú pháp trong /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/test.json tại dòng 187, cột 7: expected `,` or `}` at line 187 column 7
-Dòng lỗi: '      "RunPath" : "/smarthome/data",'
-2025-04-27 13:44:52 [INFO] [SUMMARY] Total files checked: 1
-Errors: 1
-2025-04-27 13:51:57 [INFO] Found 0 JSON files to check
-2025-04-27 13:51:57 [INFO] [SUMMARY] Total files checked: 0
-Errors: 0
-2025-04-27 13:52:26 [INFO] Found 4 JSON files to check
-2025-04-27 13:52:26 [ERROR] Lỗi cú pháp trong /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/me2.json tại dòng 6, cột 7: expected `,` or `}` at line 6 column 7
-Dòng lỗi: '      "retries": 3'
-2025-04-27 13:52:26 [INFO] File /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/me.json checked successfully
-2025-04-27 13:52:26 [ERROR] Lỗi cú pháp trong /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/me3.json tại dòng 12, cột 5: expected `,` or `]` at line 12 column 5
-Dòng lỗi: '    }'
-2025-04-27 13:52:26 [INFO] File /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/smarthome.json checked successfully
-2025-04-27 13:52:26 [INFO] [SUMMARY] Total files checked: 4
+2025-05-04 14:16:55 [INFO] Found 2 files to check (JSON and systemd service)
+2025-05-04 14:16:55 [INFO] File systemd service /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/check-hw.service checked successfully
+2025-05-04 14:16:55 [ERROR] Content check failed for systemd service file /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/check-hw.service:
+Đường dẫn lệnh không tồn tại tại dòng 5: '/etc/smarthome/zigbee_startup.sh'
+Đường dẫn lệnh không tồn tại tại dòng 6: '/etc/smarthome/check-update.sh'
+Đường dẫn lệnh không tồn tại tại dòng 7: '/usr/bin/check-hw'
+2025-05-04 14:16:55 [INFO] File systemd service /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/dnet-agent2.service checked successfully
+2025-05-04 14:16:55 [ERROR] Content check failed for systemd service file /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/dnet-agent2.service:
+Đường dẫn lệnh không tồn tại tại dòng 9: '/var/cache/dnet/runner.sh'
+2025-05-04 14:16:55 [INFO] [SUMMARY] Total files checked: 2
 Errors: 2
-2025-04-27 13:53:23 [INFO] Found 4 JSON files to check
-2025-04-27 13:53:23 [ERROR] Lỗi cú pháp trong /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/me3.json tại dòng 12, cột 5: expected `,` or `]` at line 12 column 5
-Dòng lỗi: '    }'
-2025-04-27 13:53:23 [INFO] File /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/me.json checked successfully
-2025-04-27 13:53:23 [ERROR] Lỗi cú pháp trong /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/me2.json tại dòng 6, cột 7: expected `,` or `}` at line 6 column 7
-Dòng lỗi: '      "retries": 3'
-2025-04-27 13:53:23 [INFO] File /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/smarthome.json checked successfully
-2025-04-27 13:53:23 [INFO] [SUMMARY] Total files checked: 4
+2025-05-05 03:45:23 [INFO] Found 2 files to check (JSON and systemd service)
+2025-05-05 03:45:23 [INFO] File systemd service /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/check-hw.service checked successfully
+2025-05-05 03:45:23 [INFO] File systemd service /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/dnet-agent2.service checked successfully
+2025-05-05 03:45:23 [ERROR] Content check failed for systemd service file /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/check-hw.service:
+Đường dẫn lệnh không tồn tại tại dòng 5: '/etc/smarthome/zigbee_startup.sh'
+Đường dẫn lệnh không tồn tại tại dòng 6: '/etc/smarthome/check-update.sh'
+Đường dẫn lệnh không tồn tại tại dòng 7: '/usr/bin/check-hw'
+2025-05-05 03:45:23 [ERROR] Content check failed for systemd service file /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/dnet-agent2.service:
+Đường dẫn lệnh không tồn tại tại dòng 9: '/var/cache/dnet/runner.sh'
+2025-05-05 03:45:23 [INFO] [SUMMARY] Total files checked: 2
+Errors: 2
+2025-05-05 03:46:04 [INFO] Found 2 files to check (JSON and systemd service)
+2025-05-05 03:46:04 [INFO] File systemd service /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/check-hw.service checked successfully
+2025-05-05 03:46:04 [ERROR] Content check failed for systemd service file /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/check-hw.service:
+Đường dẫn lệnh không tồn tại tại dòng 5: '/etc/smarthome/zigbee_startup.sh'
+Đường dẫn lệnh không tồn tại tại dòng 6: '/etc/smarthome/check-update.sh'
+Đường dẫn lệnh không tồn tại tại dòng 7: '/usr/bin/check-hw'
+2025-05-05 03:46:04 [INFO] File systemd service /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/dnet-agent2.service checked successfully
+2025-05-05 03:46:04 [ERROR] Content check failed for systemd service file /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/dnet-agent2.service:
+Đường dẫn lệnh không tồn tại tại dòng 9: '/var/cache/dnet/runner.sh'
+2025-05-05 03:46:04 [INFO] [SUMMARY] Total files checked: 2
+Errors: 2
+2025-05-05 03:58:54 [INFO] Found 2 files to check (JSON and systemd service)
+2025-05-05 03:58:54 [INFO] File systemd service /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/dnet-agent2.service checked successfully
+2025-05-05 03:58:54 [INFO] File systemd service /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/check-hw.service checked successfully
+2025-05-05 03:58:54 [ERROR] Content check failed for systemd service file /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/dnet-agent2.service:
+Đường dẫn lệnh không tồn tại tại dòng 9: '/var/cache/dnet/runner.sh'
+2025-05-05 03:58:54 [ERROR] Content check failed for systemd service file /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/check-hw.service:
+Đường dẫn lệnh không tồn tại tại dòng 5: '/etc/smarthome/zigbee_startup.sh'
+Đường dẫn lệnh không tồn tại tại dòng 6: '/etc/smarthome/check-update.sh'
+Đường dẫn lệnh không tồn tại tại dòng 7: '/usr/bin/check-hw'
+2025-05-05 03:58:54 [INFO] [SUMMARY] Total files checked: 2
+Errors: 2
+2025-05-05 04:00:18 [INFO] Found 2 files to check (JSON and systemd service)
+2025-05-05 04:00:18 [INFO] File systemd service /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/check-hw.service checked successfully
+2025-05-05 04:00:18 [ERROR] Content check failed for systemd service file /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/check-hw.service:
+Đường dẫn lệnh không tồn tại tại dòng 5: '/etc/smarthome/zigbee_startup.sh'
+Đường dẫn lệnh không tồn tại tại dòng 6: '/etc/smarthome/check-update.sh'
+Đường dẫn lệnh không tồn tại tại dòng 7: '/usr/bin/check-hw'
+2025-05-05 04:00:18 [INFO] File systemd service /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/dnet-agent2.service checked successfully
+2025-05-05 04:00:18 [ERROR] Content check failed for systemd service file /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/dnet-agent2.service:
+Đường dẫn lệnh không tồn tại tại dòng 9: '/var/cache/dnet/runner.sh'
+2025-05-05 04:00:18 [INFO] [SUMMARY] Total files checked: 2
+Errors: 2
+2025-05-07 08:29:08 [INFO] Found 2 files to check (JSON and systemd service)
+2025-05-07 08:29:08 [INFO] File systemd service /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/dnet-agent2.service checked successfully
+2025-05-07 08:29:08 [ERROR] Content check failed for systemd service file /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/dnet-agent2.service:
+Đường dẫn lệnh không tồn tại tại dòng 9: '/var/cache/dnet/runner.sh'
+2025-05-07 08:29:08 [INFO] File systemd service /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/check-hw.service checked successfully
+2025-05-07 08:29:08 [ERROR] Content check failed for systemd service file /home/do30032003/rust_project/Build-Rust-on-mips-and-aarch64-architecture/ToolCheckConfig/src/etc/config/service/check-hw.service:
+Đường dẫn lệnh không tồn tại tại dòng 5: '/etc/smarthome/zigbee_startup.sh'
+Đường dẫn lệnh không tồn tại tại dòng 6: '/etc/smarthome/check-update.sh'
+Đường dẫn lệnh không tồn tại tại dòng 7: '/usr/bin/check-hw'
+2025-05-07 08:29:08 [INFO] [SUMMARY] Total files checked: 2
 Errors: 2

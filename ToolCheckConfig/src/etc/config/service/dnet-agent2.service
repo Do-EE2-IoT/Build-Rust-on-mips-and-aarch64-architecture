@@ -1,0 +1,13 @@
+[Unit]
+Description=This unit will start after internet connection
+After=network.target
+Wants=
+
+[Service]
+Restart=always
+Type=simple
+ExecStart=/var/cache/dnet/runner.sh
+Environment='RUST_LOG=warn'
+
+[Install]
+WantedBy=multi-user.target

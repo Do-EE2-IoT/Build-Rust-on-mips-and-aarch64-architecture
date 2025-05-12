@@ -1,1 +1,1 @@
-pub mod CheckSyntax;
+pub mod validate;

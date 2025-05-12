@@ -1,0 +1,280 @@
+{ 
+  "url_weather" : "https://weather.proxy.fpt.cluster.lumi.biz",
+  "key_weather" : "SpKYL5CxWAY2IGfhLYfTtZ34hzzItN50",
+  "bridge_component" : {
+    "aibox" : {
+      "InstallPath" : "/var/cache/smarthome/aibox/",
+      "LogFile" : "/smarthome/log/aibox.log",
+      "RunPath" : "/smarthome/data",
+      "bridge_key" : "nvr",
+      "enable" : false,
+      "env" : [
+        "DETECT_MAIN_STREAM=false",
+        "RECORD_MAIN_STREAM=true",
+        "MODEL_PATH=/etc/smarthome/ai_all_base.lum",
+        "SCORE_BASE=0.6",
+        "SCORE_SECURITY=0.8",
+        "IOU_RATE=0.8",
+        "BACKGROUND_LEARNING_RATE=0.9",
+        "LIGHT_PERCENTAGE_THRESHOLD=30",
+        "LD_LIBRARY_PATH=/usr/local/lib/"
+      ]
+    },
+    "bluetooth" : {
+      "BlBridgeConf" : {
+        "host" : "localhost",
+        "kalive_topic" : "component/keepalive/",
+        "port" : 1883,
+        "req_topic" : "component/bluetooth/#",
+        "res_topic" : "component/bluetooth/"
+      },
+      "BlGatewayConf" : {
+        "Baud" : 115200,
+        "HardwareVersion" : 1,
+        "ManufacturerID" : 1078,
+        "ProductID" : 6,
+        "ProductType" : 9,
+        "SerialPortName" : "/dev/ttyS5"
+      },
+      "InstallPath" : "/var/cache/smarthome/bluetooth",
+      "LogFile" : "/smarthome/log/bluetooth.log",
+      "RunPath" : "/smarthome/data",
+      "bridge_key" : "bluetooth",
+      "enable" : true
+    },
+    "io-bridge" : {
+      "InstallPath" : "/var/cache/smarthome/io-manager/",
+      "LogFile" : "/smarthome/log/io-manager.log",
+      "RunPath" : "/smarthome/data",
+      "abstract" : true,
+      "bridge_key" : "io",
+      "enable" : true
+    },
+    "ip" : {
+      "InstallPath" : "/var/cache/smarthome/ip/",
+      "LogFile" : "/smarthome/log/ip.log",
+      "RunPath" : "/smarthome/data",
+      "bridge_key" : "ip",
+      "enable" : true,
+      "need_sync" : false,
+      "env" : [
+        "RUST_LOG=info",
+        "STORE_DB=/var/cache/smarthome/ip/ip.db",
+        "RUN_DB=/smarthome/data/ip.db"
+      ]
+    },
+    "lte_bridge" : {
+      "InstallPath" : "/var/cache/smarthome/lte-bridge",
+      "LogFile" : "/smarthome/log/lte-bridge.log",
+      "LteBridgeConf" : {
+         "host" : "localhost",
+         "kalive_topic" : "component/keepalive/",
+         "port" : 1883,
+         "req_topic" : "component/lte_bridge/#",
+         "res_topic" : "component/lte_bridge/"
+      },
+      "LteGatewayConf" : {
+         "Baud" : 115200,
+         "SerialPortName" : "/dev/ttyS1"
+      },
+      "RunPath" : "/smarthome/data",
+      "backup" : false,
+      "bridge_key" : "lte_bridge",
+      "enable" : true,
+      "env" : [
+         "MQTT_HOST=localhost",
+         "MQTT_PORT=1883",
+         "CERT_PATH=/var/cache/smarthome/hcg1/LuciRootCA.pem",
+         "LRN_PATH=/var/cache/smarthome/hcg1/lrn.txt",
+         "SERVER_ADDRESS=broker.region-southeast-1.iot.lumi.vn:8883",
+         "USERNAME=CBR500RLumiVN@Smarthome2019",
+         "PASSWORD=d0acc56610a760f1bb17a20472850d1e1a53052412fea7759c1dc96bde618358",
+         "SERIAL_PATH=/dev/ttyS1",
+         "BAUD_RATE=115200"
+      ],
+      "need_sync" : false,
+      "run_command" : "systemctl restart lte_bridge.service"
+    },
+    "zigbee" : {
+      "InstallPath" : "/var/cache/smarthome/zigbee",
+      "LogFile" : "/smarthome/log/zigbee.log",
+      "RunPath" : "/smarthome/data",
+      "ZbBridgeConf" : {
+        "host" : "localhost",
+        "kalive_topic" : "component/keepalive/",
+        "port" : 1883,
+        "req_topic" : "component/zigbee/#",
+        "res_topic" : "component/zigbee/"
+      },
+      "ZbGatewayConf" : {
+        "Baud" : 19200,
+        "HardwareVersion" : 1,
+        "ManufacturerID" : 1078,
+        "ProductID" : 6,
+        "ProductType" : 9,
+        "SerialPortName" : "/dev/ttyS4"
+      },
+      "bridge_key" : "zigbee",
+      "enable" : true,
+      "force_disable" : false,
+      "time_server_private" : "https://api.smarthome.lumi.vn/home/get-current-epoch-time",
+      "time_server_public" : "time.google.com",
+      "zigbee_firmware_version" : "1.0.0.1"
+    }
+  },
+  "build_date" : "2025-04-21",
+  "cert_path" : "/etc/smarthome/certs",
+  "component_keepalive" : 60,
+  "debug_mode" : false,
+  "dns" : "8.8.8.8",
+  "firmware_version" : "1.0.7",
+  "version_number" : 7,
+  "hc_version" : 28,
+  "http_server" : "https://api.smarthome.lumi.vn",
+  "log_file" : "/smarthome/log/process-manager.log",
+  "log_path" : "/smarthome/log",
+  "log_server" : "https://r2-api.lumi.biz",
+  "log_server_port" : 443,
+  "logPM": "/smarthome/log/check-hw.log",
+  "storage_prefix": "production/",
+  "main_component" : {
+    "io-manager" : {
+      "InstallPath" : "/var/cache/smarthome/io-manager/",
+      "LogFile" : "/smarthome/log/io-manager.log",
+      "RunPath" : "/smarthome/data",
+      "hardware_version" : 0,
+      "pos_init" : 0,
+      "env": [
+          "RELAYS_OUT=3,4,5",
+          "RELAYS_IN=0,1,2",
+          "STATE_STORAGE_DIR=/var/cache/smarthome/io-manager",
+          "LED_LINES=138,41,28,134",
+          "LED_INDEXS=2,3,4,5",
+          "BUTTON_LINE=44",
+          "FAN_PINS=15,232",
+          "TEMP_FILE=/sys/class/thermal/thermal_zone5/temp",
+          "PLATFORM=rk3588"
+      ]
+    },
+    "network-service" : {
+      "InstallPath" : "/var/cache/smarthome/network-service/",
+      "LogFile" : "/smarthome/log/network-service.log",
+      "RunPath" : "/smarthome/data",
+      "pos_init" : 1
+    },
+    "hcg1" : {
+      "InstallPath" : "/var/cache/smarthome/hcg1/",
+      "LogFile" : "/smarthome/log/hcg1.log",
+      "RunPath" : "/smarthome/data",
+      "http_server" : "https://api.smarthome.lumi.vn",
+      "ip" : "broker.region-southeast-1.iot.lumi.vn",
+      "port" : 8883,
+      "media_server" : "https://media.smarthome.lumi.vn",
+      "storage_server": "https://r2-api.lumi.biz",
+      "pos_init" : 2
+    },
+    "ota" : {
+      "InstallPath" : "/var/cache/smarthome/ota",
+      "LogFile" : "/smarthome/log/ota.log",
+      "RunPath" : "/smarthome/data",
+      "pos_init" : 3,
+      "random_time" : 30,
+      "url_base" : "https://api.smarthome.lumi.vn"
+    },
+    "streaming-module" : {
+      "InstallPath" : "/var/cache/smarthome/streaming-module/",
+      "LogFile" : "/smarthome/log/streaming-module.log",
+      "RunPath" : "/smarthome/data",
+      "env" : [
+        "MTU_SIZE=1200",
+        "UPLOAD_API_ENDPOINT=https://cctv.owslab.io",
+        "MAX_STREAMS_NUM=10",
+        "EDGE_HOST=210.211.96.157",
+        "DUMP_EVENT_RECORD_FILES=false",
+        "CONTROLLER_ENDPOINT=wss://cctv.owslab.io/ws",
+        "EDGE_PORT=24800",
+        "MULTILOOP_SIZE=2",
+        "MQTT_ENDPOINT=tcp://localhost:1883",
+        "MQTT_USERNAME=component",
+        "MQTT_PASSWORD=123",
+        "DISABLE_WORKER_LOG_DEBUG=true",
+        "DISABLE_WORKER_LOG_INFO=true"
+      ],
+      "init" : false,
+      "pos_init" : 4
+    },
+    "activator-client": {
+      "InstallPath": "/var/cache/smarthome/activator-client/",
+      "LogFile": "/smarthome/log/activator-client.log",
+      "RunPath": "/smarthome/data",
+      "env": [
+        "ACTIVE_KEYS_FILE=/etc/smarthome/bip32_key.json",
+        "ACTIVE_ENDPOINT=https://activator.lumi.biz/api/active",
+        "SECRET_FILE=/sys/class/block/mmcblk2/device/cid"
+      ],
+      "need_keep_alive": false,
+      "post_init": 5
+    },
+    "relay-agent" : {
+      "InstallPath" : "/var/cache/smarthome/relay-agent/",
+      "LogFile" : "/smarthome/log/relay-agent.log",
+      "RunPath" : "/smarthome/data",
+      "env" : [
+        "CONNECTOR_PROTOCOL=quic",
+        "SERVER_LIST_ENDPOINTS=https://raw.githubusercontent.com/rd-lumi/fetch-list/refs/heads/main/production/main.txt,https://api-storage-staging.gofa.vn/relay-cloud/production/main.txt,https://relay-source-list.lumi.biz/production/main.txt",
+        "FORWARD_SERVICES=200",
+        "RELAY_BIP32_FILE=/etc/smarthome/bip32_key.json",
+        "CERT_PATH=/etc/smarthome/tunnel.cert",
+        "RTSP_DEST=127.0.0.1:1554"
+      ],
+      "pos_init" : 6,
+      "need_keep_alive": false
+    },
+    "hc-module" : {
+      "InstallPath" : "/var/cache/smarthome/hc-module/",
+      "LogFile" : "/smarthome/log/hc-module.log",
+      "RunPath" : "/smarthome/data",
+      "env" : [
+        "LUMI_ROOT_KEY=xpub661MyMwAqRbcFbQ7pZYnSrhDQhjiYbzCF5zbDgsMNiYLM92ssvEPoLuJPR4yM4RkaiDebDgx9wEQbhkvKrVZdvN9SFrvByftZwCyHhmmCLY",
+        "AGENT_ADDR=http://127.0.0.1:10000",
+        "ACTIVE_KEYS_FILE=/etc/smarthome/bip32_key.json",
+        "OPENTELEMETRY_TRACE_ENDPOINT=https://tracing.lumi.biz:5082/api/hc-module-tracing/v1/traces",
+        "OPENTELEMETRY_AUTHEN_TOKEN=cm9vdEBsdW1pLnZuOmhFSm5wRnVpTHp6NVpFWnE=",
+        "RTSP_PORT=1554"
+      ],
+      "pos_init" : 7,
+      "need_keep_alive": false
+    },
+    "device-exporter" : {
+      "InstallPath" : "/var/cache/smarthome/device-exporter/",
+      "LogFile" : "/smarthome/log/device-exporter.log",
+      "RunPath" : "/smarthome/data",
+      "pos_init": 8,
+      "env" : [
+        "METRICS_DEST=127.0.0.1:10000",
+        "SCRAPE_INTERVAL_SEC=300",
+        "DEVICE_TYPE=rk3588",
+        "EXTRA_COLLECTORS=2"
+      ],
+      "need_keep_alive": false
+    },
+    "legacy-streaming-module": {
+      "InstallPath" : "/var/cache/smarthome/legacy-streaming-module/",
+      "RunPath" : "/smarthome/data",
+      "LogFile" : "/smarthome/log/legacy-streaming-module.log",
+      "pos_init": 9,
+      "env" : [
+        "CCTV_PROXY_PORT=1554",
+        "OPENTELEMETRY_TRACE_ENDPOINT=https://tracing.lumi.biz:5082/api/hc-module-tracing/v1/traces",
+        "OPENTELEMETRY_AUTHEN_TOKEN=cm9vdEBsdW1pLnZuOmhFSm5wRnVpTHp6NVpFWnE=",
+        "CCTV_CLOUD_SERVICE_ADDR=http://127.0.0.1:10000"
+      ],
+      "need_keep_alive": false
+    }
+  },
+  "ntp_server" : "time.google.com",
+  "root_path" : "/var/cache/smarthome",
+  "run_path" : "/smarthome/data",
+  "timezone" : "Asia/Bangkok",
+  "secret_path": "/sys/class/block/mmcblk2/device/cid"
+}

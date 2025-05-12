@@ -1,19 +1,19 @@
-use crate::module::CheckSyntax::syntax::{CheckResult, CheckSyntaxConfig};
-use log::{error, info};
+use crate::module::validate::path::{CheckResult, PathChecker};
+use crate::module::validate::syntax::CheckSyntaxConfig;
+use log::info;
 use rayon::prelude::*;
-use std::fs::{self, File};
-use std::io::BufReader;
+use std::fs;
 use std::path::Path;
 use walkdir::WalkDir;
 
 pub struct ToolConfig {
-    pub path: String,
+    pub paths: Vec<String>, // Đầu vào là danh sách các thư mục
     pub log_path: String,
 }
 
 impl ToolConfig {
-    pub fn new(path: String, log_path: String) -> Self {
-        Self { path, log_path }
+    pub fn new(paths: Vec<String>, log_path: String) -> Self {
+        Self { paths, log_path }
     }
 
     pub fn setup_logger(&self) -> Result<(), fern::InitError> {
@@ -37,31 +37,57 @@ impl ToolConfig {
         self.setup_logger()
             .map_err(|e| format!("Không thể thiết lập logger: {}", e))?;
 
-        // Thu thập danh sách file JSON
-        let json_files: Vec<String> = WalkDir::new(&self.path)
-            .into_iter()
-            .filter_map(|e| e.ok())
-            .filter(|e| {
-                e.path().is_file() && e.path().extension().map_or(false, |ext| ext == "json")
+        let files: Vec<(String, &str)> = self
+            .paths
+            .iter()
+            .flat_map(|path| {
+                WalkDir::new(path)
+                    .into_iter()
+                    .filter_map(|e| e.ok())
+                    .filter(|e| {
+                        e.path().is_file()
+                            && e.path().extension().is_some_and(|ext| {
+                                let ext: String = ext.to_string_lossy().to_lowercase();
+                                ext == "json" || ext == "service"
+                            })
+                    })
+                    .map(|e| {
+                        let path = e.path().to_string_lossy().into_owned();
+                        let ext = e
+                            .path()
+                            .extension()
+                            .unwrap()
+                            .to_string_lossy()
+                            .to_lowercase();
+                        (path, if ext == "json" { "json" } else { "service" })
+                    })
             })
-            .map(|e| e.path().to_string_lossy().into_owned())
             .collect();
 
-        let file_count = json_files.len();
-        info!("Found {} JSON files to check", file_count);
+        let file_count = files.len();
+        info!(
+            "Found {} files to check (JSON and systemd service)",
+            file_count
+        );
 
-        // Giới hạn số luồng để tránh quá tải
         rayon::ThreadPoolBuilder::new()
-            .num_threads(4) // Giới hạn 4 luồng
+            .num_threads(4)
             .build_global()
             .map_err(|e| format!("Không thể thiết lập thread pool: {}", e))?;
 
-        // Kiểm tra file song song
-        let error_count: usize = json_files
+        let error_count: usize = files
             .par_iter()
-            .filter_map(|path| {
-                let config = CheckSyntaxConfig { path: path.clone() };
-                config.check_json_file().err().map(|_| 1)
+            .filter_map(|(path, _file_type)| {
+                let syntax_config = CheckSyntaxConfig { path: path.clone() };
+                if let Err(e) = syntax_config.check_file() {
+                    return Some(1);
+                }
+
+                let path_checker = PathChecker::new(path.clone());
+                if let Err(e) = path_checker.check_content() {
+                    return Some(1);
+                }
+                None
             })
             .sum();
 

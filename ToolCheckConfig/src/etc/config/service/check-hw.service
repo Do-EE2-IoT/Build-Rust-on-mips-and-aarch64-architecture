@@ -1,0 +1,12 @@
+[Unit]
+Description=Lumi Check Hardware service
+
+[Service]
+ExecStartPre=/etc/smarthome/zigbee_startup.sh
+ExecStartPre=/etc/smarthome/check-update.sh check-hw
+ExecStart=/usr/bin/check-hw -c /etc/smarthome/hc-config.json
+StandardOutput=null
+SyslogIdentifier=Lumi.check-hw
+CPUAffinity=0-1
+[Install]
+WantedBy=multi-user.target

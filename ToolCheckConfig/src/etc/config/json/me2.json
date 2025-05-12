@@ -1,8 +1,0 @@
-{
-    "name": "service_3",
-    "enabled": true,
-    "settings": {
-      "timeout": 30
-      "retries": 3
-    }
-  }
